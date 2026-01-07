@@ -1,0 +1,69 @@
+---
+description: 日本語翻訳作業の自動化ルール。「翻訳続けて」「翻訳して」などと言われたら自動的に翻訳作業を実行する。
+globs:
+  - apps/frontend/src/shared/i18n/**/*
+alwaysApply: false
+---
+
+# 日本語翻訳作業ルール
+
+ユーザーが「翻訳続けて」「翻訳して」「i18n作業して」などと言った場合、以下の手順で自動的に翻訳作業を実行すること。
+
+## 翻訳ファイルの場所
+
+```
+apps/frontend/src/shared/i18n/locales/
+├── en/          ← 英語（ベース）
+├── fr/          ← フランス語
+└── ja/          ← 日本語（作業対象）
+```
+
+## 翻訳対象ファイル
+
+| ファイル | 内容 |
+|---------|------|
+| common.json | 共通ラベル、ボタン |
+| navigation.json | サイドバーナビゲーション |
+| settings.json | 設定画面 |
+| tasks.json | タスク関連 |
+| welcome.json | ウェルカム画面 |
+| onboarding.json | オンボーディング |
+| dialogs.json | ダイアログ |
+| gitlab.json | GitLab連携 |
+| taskReview.json | タスクレビュー |
+| terminal.json | ターミナル関連（要作成） |
+
+## 翻訳作業の手順
+
+1. **ブランチ確認**: `feature/japanese-localization` にいることを確認
+2. **差分確認**: 英語版と日本語版を比較し、未翻訳キーを特定
+3. **翻訳実行**: 未翻訳キーを日本語に翻訳
+4. **コミット**: 変更をコミット
+
+## 自動実行コマンド
+
+```bash
+# ブランチ確認・切り替え
+git checkout feature/japanese-localization
+
+# 差分確認（英語版にあって日本語版にないキー）
+# JSONファイルを比較して未翻訳キーを抽出
+
+# 翻訳後コミット
+git add apps/frontend/src/shared/i18n/locales/ja/
+git commit -m "feat(i18n): update Japanese translations"
+git push origin feature/japanese-localization
+```
+
+## 翻訳スタイルガイド
+
+- 丁寧語を使用（です・ます調）
+- 技術用語は英語のまま（例: Git, GitHub, OAuth, API）
+- UIラベルは簡潔に
+- プレースホルダー（`{{variable}}`）は変更しない
+
+## 優先度
+
+1. `terminal.json` - 新規作成が必要
+2. `common.json` - 最もよく使われる
+3. その他のファイルの未翻訳キー

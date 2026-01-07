@@ -1,0 +1,57 @@
+---
+description: フォークリポジトリの運用ルール（upstream同期、日本語ローカライズ管理）
+globs:
+alwaysApply: true
+---
+
+# フォーク運用ルール
+
+このリポジトリは `AndyMik90/Auto-Claude` のフォークです。
+
+## ブランチ構成
+
+```
+main                          ← フォーク元の最新変更を含む（upstream/develop と同期）
+  └── feature/japanese-localization ← 日本語ローカライズ作業ブランチ
+```
+
+## リモート構成
+
+- `origin`: 自分のフォーク (`kt-nishimura/Auto-Claude_`)
+- `upstream`: フォーク元 (`AndyMik90/Auto-Claude`)
+
+## フォーク元の変更を取り込む手順
+
+```bash
+# 1. upstreamから最新を取得
+git fetch upstream
+
+# 2. mainブランチにupstream/developをマージ
+git checkout main
+git merge upstream/develop
+
+# 3. コンフリクトがあれば解決（upstreamの変更を優先、ただしi18n関連は両方保持）
+
+# 4. ローカライズブランチをリベース
+git checkout feature/japanese-localization
+git rebase main
+
+# 5. リモートにプッシュ（リベース後はforce push必要）
+git push origin main
+git push origin feature/japanese-localization --force
+```
+
+## 日本語ローカライズ作業
+
+- 作業ブランチ: `feature/japanese-localization`
+- 翻訳ファイル: `apps/frontend/src/shared/i18n/locales/ja/`
+- 参照: 英語版 (`en/`) をベースに翻訳
+
+## コンフリクト解決の方針
+
+| ファイル種別 | 方針 |
+|------------|------|
+| 翻訳ファイル (*.json) | 両方の変更を保持 |
+| TSXコンポーネント | upstream機能 + i18n対応の両方を保持 |
+| package-lock.json | upstreamを採用 |
+| その他 | upstreamを優先 |
