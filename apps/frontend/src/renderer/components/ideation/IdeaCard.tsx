@@ -1,4 +1,5 @@
 import { ExternalLink, Play, X } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 import { Button } from '../ui/button';
 import { Badge } from '../ui/badge';
 import { Card } from '../ui/card';
@@ -45,6 +46,7 @@ interface IdeaCardProps {
 }
 
 export function IdeaCard({ idea, isSelected, onClick, onConvert, onGoToTask, onDismiss, onToggleSelect }: IdeaCardProps) {
+  const { t } = useTranslation('common');
   const isDismissed = idea.status === 'dismissed';
   const isArchived = idea.status === 'archived';
   const isConverted = idea.status === 'converted';
@@ -138,7 +140,7 @@ export function IdeaCard({ idea, isSelected, onClick, onConvert, onGoToTask, onD
                     <Play className="h-4 w-4" />
                   </Button>
                 </TooltipTrigger>
-                <TooltipContent>Convert to Task</TooltipContent>
+                <TooltipContent>{t('ideation.convertToTask')}</TooltipContent>
               </Tooltip>
               <Tooltip>
                 <TooltipTrigger asChild>
@@ -154,7 +156,7 @@ export function IdeaCard({ idea, isSelected, onClick, onConvert, onGoToTask, onD
                     <X className="h-4 w-4" />
                   </Button>
                 </TooltipTrigger>
-                <TooltipContent>Dismiss</TooltipContent>
+                <TooltipContent>{t('ideation.dismiss')}</TooltipContent>
               </Tooltip>
             </div>
           )}
@@ -175,7 +177,7 @@ export function IdeaCard({ idea, isSelected, onClick, onConvert, onGoToTask, onD
                     <ExternalLink className="h-4 w-4" />
                   </Button>
                 </TooltipTrigger>
-                <TooltipContent>Go to Task</TooltipContent>
+                <TooltipContent>{t('ideation.goToTask')}</TooltipContent>
               </Tooltip>
             </div>
           )}
@@ -196,7 +198,7 @@ export function IdeaCard({ idea, isSelected, onClick, onConvert, onGoToTask, onD
                     <ExternalLink className="h-4 w-4" />
                   </Button>
                 </TooltipTrigger>
-                <TooltipContent>Go to Task</TooltipContent>
+                <TooltipContent>{t('ideation.goToTask')}</TooltipContent>
               </Tooltip>
             </div>
           )}

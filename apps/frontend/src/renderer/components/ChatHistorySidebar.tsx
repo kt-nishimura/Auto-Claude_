@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import {
   Plus,
   MessageSquare,
@@ -50,6 +51,7 @@ export function ChatHistorySidebar({
   onDeleteSession,
   onRenameSession
 }: ChatHistorySidebarProps) {
+  const { t } = useTranslation('common');
   const [editingId, setEditingId] = useState<string | null>(null);
   const [editTitle, setEditTitle] = useState('');
   const [deleteSessionId, setDeleteSessionId] = useState<string | null>(null);
@@ -86,11 +88,11 @@ export function ChatHistorySidebar({
     const diffDays = Math.floor(diffMs / (1000 * 60 * 60 * 24));
 
     if (diffDays === 0) {
-      return 'Today';
+      return t('insights.today');
     } else if (diffDays === 1) {
-      return 'Yesterday';
+      return t('insights.yesterday');
     } else if (diffDays < 7) {
-      return `${diffDays} days ago`;
+      return t('insights.daysAgo', { count: diffDays });
     } else {
       return d.toLocaleDateString(undefined, { month: 'short', day: 'numeric' });
     }
@@ -110,7 +112,7 @@ export function ChatHistorySidebar({
     <div className="flex h-full w-64 flex-col border-r border-border bg-muted/30">
       {/* Header */}
       <div className="flex items-center justify-between border-b border-border px-3 py-3">
-        <h3 className="text-sm font-medium text-foreground">Chat History</h3>
+        <h3 className="text-sm font-medium text-foreground">{t('insights.chatHistory')}</h3>
         <Button
           variant="ghost"
           size="icon"
@@ -130,7 +132,7 @@ export function ChatHistorySidebar({
           </div>
         ) : sessions.length === 0 ? (
           <div className="px-3 py-8 text-center text-sm text-muted-foreground">
-            No conversations yet
+            {t('insights.noConversations')}
           </div>
         ) : (
           <div className="py-2">
@@ -164,15 +166,14 @@ export function ChatHistorySidebar({
       <AlertDialog open={!!deleteSessionId} onOpenChange={() => setDeleteSessionId(null)}>
         <AlertDialogContent>
           <AlertDialogHeader>
-            <AlertDialogTitle>Delete conversation?</AlertDialogTitle>
+            <AlertDialogTitle>{t('insights.deleteConversation')}</AlertDialogTitle>
             <AlertDialogDescription>
-              This will permanently delete this conversation and all its messages.
-              This action cannot be undone.
+              {t('insights.deleteConversationDesc')}
             </AlertDialogDescription>
           </AlertDialogHeader>
           <AlertDialogFooter>
-            <AlertDialogCancel>Cancel</AlertDialogCancel>
-            <AlertDialogAction onClick={handleDelete}>Delete</AlertDialogAction>
+            <AlertDialogCancel>{t('buttons.cancel')}</AlertDialogCancel>
+            <AlertDialogAction onClick={handleDelete}>{t('buttons.delete')}</AlertDialogAction>
           </AlertDialogFooter>
         </AlertDialogContent>
       </AlertDialog>

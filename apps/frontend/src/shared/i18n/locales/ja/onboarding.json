@@ -1,0 +1,138 @@
+{
+  "wizard": {
+    "title": "セットアップウィザード",
+    "description": "いくつかの簡単な手順でAuto Claude環境を設定します",
+    "helpText": "このウィザードはいくつかの手順で環境をセットアップします。Claude OAuthトークンの設定、メモリ機能のセットアップ、最初のタスクの作成を行えます。"
+  },
+  "welcome": {
+    "title": "Auto Claudeへようこそ",
+    "subtitle": "AI搭載エージェントで自律的にソフトウェアを構築",
+    "getStarted": "始める",
+    "skip": "セットアップをスキップ",
+    "features": {
+      "aiPowered": {
+        "title": "AI搭載開発",
+        "description": "Claude Codeエージェントを使用してコードを生成し機能を構築"
+      },
+      "specDriven": {
+        "title": "仕様駆動ワークフロー",
+        "description": "明確な仕様でタスクを定義し、Auto Claudeに実装を任せる"
+      },
+      "memory": {
+        "title": "メモリとコンテキスト",
+        "description": "Graphitiによるセッション間の永続メモリ"
+      },
+      "parallel": {
+        "title": "並列実行",
+        "description": "より高速な開発サイクルのために複数のエージェントを並列実行"
+      }
+    }
+  },
+  "oauth": {
+    "title": "Claude認証",
+    "description": "ClaudeアカウントをAI機能を有効にするために接続してください",
+    "keychainTitle": "安全なストレージ",
+    "keychainDescription": "トークンはシステムのキーチェーンを使用して暗号化されます。macOSからパスワードプロンプトが表示される場合があります—「常に許可」をクリックすると再表示されなくなります。"
+  },
+  "memory": {
+    "title": "メモリ",
+    "description": "Auto Claudeメモリはコーディングセッション間でコンテキストを記憶します"
+  },
+  "completion": {
+    "title": "準備完了！",
+    "subtitle": "Auto Claudeは素晴らしいソフトウェアを構築する準備ができています",
+    "setupComplete": "セットアップ完了",
+    "setupCompleteDescription": "環境が設定され、準備ができています。すぐにタスクの作成を開始するか、自分のペースでアプリケーションを探索できます。",
+    "whatsNext": "次のステップ",
+    "createTask": {
+      "title": "タスクを作成",
+      "description": "最初のタスクを作成してAuto Claudeの動作を確認しましょう。",
+      "action": "タスク作成を開く"
+    },
+    "customizeSettings": {
+      "title": "設定をカスタマイズ",
+      "description": "設定を調整したり、統合を設定したり、このウィザードを再実行できます。",
+      "action": "設定を開く"
+    },
+    "exploreDocs": {
+      "title": "ドキュメントを探索",
+      "description": "高度な機能、ベストプラクティス、トラブルシューティングについて詳しく学べます。"
+    },
+    "finish": "完了して構築を開始",
+    "rerunHint": "設定 → アプリケーションからいつでもこのウィザードを再実行できます"
+  },
+  "steps": {
+    "welcome": "ようこそ",
+    "auth": "認証",
+    "claudeCode": "CLI",
+    "devtools": "開発ツール",
+    "memory": "メモリ",
+    "done": "完了"
+  },
+  "claudeCode": {
+    "title": "Claude Code CLI",
+    "description": "Claude Code CLIをインストールまたは更新してAI搭載機能を有効にします",
+    "detecting": "Claude Codeのインストールを確認中...",
+    "info": {
+      "title": "Claude Codeとは？",
+      "description": "Claude CodeはAnthropicの公式CLIで、Auto ClaudeのAI機能を提供します。安全な認証とClaudeモデルへの直接アクセスを提供します。"
+    },
+    "status": {
+      "installed": "インストール済み",
+      "outdated": "更新が利用可能",
+      "notFound": "未インストール"
+    },
+    "version": {
+      "current": "現在のバージョン",
+      "latest": "最新バージョン"
+    },
+    "install": {
+      "button": "Claude Codeをインストール",
+      "updating": "Claude Codeを更新",
+      "inProgress": "インストール中...",
+      "success": "インストールコマンドをターミナルに送信しました。そこでインストールを完了してください。",
+      "instructions": "インストーラーがターミナルで開きます。プロンプトに従ってインストールを完了してください。"
+    },
+    "learnMore": "Claude Codeについて詳しく"
+  },
+  "devtools": {
+    "title": "開発者ツール",
+    "description": "Auto Claudeワークツリーで作業するための優先IDEとターミナルを選択",
+    "detecting": "インストールされているツールを検出中...",
+    "detectAgain": "再検出",
+    "whyConfigure": "なぜこれらを設定するのですか？",
+    "whyConfigureDescription": "Auto Claudeが分離されたワークツリーで機能を構築するとき、優先IDEまたはターミナルで直接開いて変更をテストおよびレビューできます。",
+    "ide": {
+      "label": "優先IDE",
+      "description": "Auto Claudeはこのエディタでワークツリーを開きます",
+      "customPath": "カスタムIDEパス"
+    },
+    "terminal": {
+      "label": "優先ターミナル",
+      "description": "Auto Claudeはここでターミナルセッションを開きます",
+      "customPath": "カスタムターミナルパス"
+    },
+    "detectedSummary": "システムで検出済み:",
+    "noToolsDetected": "追加のツールは検出されませんでした（VS Codeとシステムターミナルが使用されます）",
+    "custom": "カスタム...",
+    "saveAndContinue": "保存して続行"
+  },
+  "ollama": {
+    "notInstalled": {
+      "title": "Ollamaがインストールされていません",
+      "description": "Ollamaはセマンティック検索用の無料のローカル埋め込みモデルを提供します。ワンクリックでインストールしてこの機能を有効にしてください。",
+      "installSuccess": "ターミナルでインストールが開始されました。インストールを完了してから、再試行をクリックしてください。",
+      "installButton": "Ollamaをインストール",
+      "installing": "インストール中...",
+      "retry": "再試行",
+      "learnMore": "詳細",
+      "fallbackNote": "Ollamaがなくてもメモリはキーワード検索で動作します。"
+    },
+    "notRunning": {
+      "title": "Ollamaが実行されていません",
+      "description": "Ollamaはインストールされていますが実行されていません。ローカル埋め込みモデルを使用するにはOllamaを起動してください。",
+      "retry": "再試行",
+      "fallbackNote": "埋め込みがなくてもメモリはキーワード検索で動作します。"
+    }
+  }
+}

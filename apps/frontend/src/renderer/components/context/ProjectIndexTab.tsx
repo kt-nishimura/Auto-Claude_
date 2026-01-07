@@ -1,4 +1,5 @@
 import { RefreshCw, AlertCircle, FolderTree } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 import { Button } from '../ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '../ui/card';
 import { Badge } from '../ui/badge';
@@ -22,15 +23,17 @@ export function ProjectIndexTab({
   indexError,
   onRefresh
 }: ProjectIndexTabProps) {
+  const { t } = useTranslation('common');
+
   return (
     <ScrollArea className="h-full">
       <div className="p-6 space-y-6">
         {/* Header with refresh */}
         <div className="flex items-center justify-between">
           <div>
-            <h2 className="text-lg font-semibold text-foreground">Project Structure</h2>
+            <h2 className="text-lg font-semibold text-foreground">{t('context.projectStructure')}</h2>
             <p className="text-sm text-muted-foreground">
-              AI-discovered knowledge about your codebase
+              {t('context.projectStructureDesc')}
             </p>
           </div>
           <Tooltip>
@@ -42,7 +45,7 @@ export function ProjectIndexTab({
                 disabled={indexLoading}
               >
                 <RefreshCw className={cn('h-4 w-4 mr-2', indexLoading && 'animate-spin')} />
-                Refresh
+                {t('buttons.refresh')}
               </Button>
             </TooltipTrigger>
             <TooltipContent>Re-analyze project structure</TooltipContent>
@@ -71,13 +74,13 @@ export function ProjectIndexTab({
         {!indexLoading && !projectIndex && !indexError && (
           <div className="flex flex-col items-center justify-center py-12 text-center">
             <FolderTree className="h-12 w-12 text-muted-foreground mb-4" />
-            <h3 className="text-lg font-medium text-foreground">No Project Index Found</h3>
+            <h3 className="text-lg font-medium text-foreground">{t('context.noProjectIndex')}</h3>
             <p className="text-sm text-muted-foreground mt-2 max-w-sm">
-              Click the Refresh button to analyze your project structure and create an index.
+              {t('context.noProjectIndexDesc')}
             </p>
             <Button onClick={onRefresh} className="mt-4">
               <RefreshCw className="h-4 w-4 mr-2" />
-              Analyze Project
+              {t('context.analyzeProject')}
             </Button>
           </div>
         )}
@@ -88,7 +91,7 @@ export function ProjectIndexTab({
             {/* Project Overview */}
             <Card>
               <CardHeader className="pb-3">
-                <CardTitle className="text-base">Overview</CardTitle>
+                <CardTitle className="text-base">{t('context.overview')}</CardTitle>
               </CardHeader>
               <CardContent className="space-y-3">
                 <div className="flex items-center gap-2">
@@ -97,8 +100,7 @@ export function ProjectIndexTab({
                   </Badge>
                   {Object.keys(projectIndex.services).length > 0 && (
                     <Badge variant="secondary">
-                      {Object.keys(projectIndex.services).length} service
-                      {Object.keys(projectIndex.services).length !== 1 ? 's' : ''}
+                      {t('context.servicesCount', { count: Object.keys(projectIndex.services).length })}
                     </Badge>
                   )}
                 </div>
@@ -112,7 +114,7 @@ export function ProjectIndexTab({
             {Object.keys(projectIndex.services).length > 0 && (
               <div className="space-y-4">
                 <h3 className="text-sm font-semibold text-muted-foreground uppercase tracking-wider">
-                  Services
+                  {t('context.services')}
                 </h3>
                 <div className="grid gap-4 md:grid-cols-2">
                   {Object.entries(projectIndex.services).map(([name, service]) => (
@@ -143,7 +145,7 @@ export function ProjectIndexTab({
                       {projectIndex.infrastructure.docker_services &&
                         projectIndex.infrastructure.docker_services.length > 0 && (
                           <div className="sm:col-span-2">
-                            <span className="text-xs text-muted-foreground">Docker Services</span>
+                            <span className="text-xs text-muted-foreground">{t('changelog.dockerServices')}</span>
                             <div className="flex flex-wrap gap-1 mt-1">
                               {projectIndex.infrastructure.docker_services.map((svc) => (
                                 <Badge key={svc} variant="secondary" className="text-xs">

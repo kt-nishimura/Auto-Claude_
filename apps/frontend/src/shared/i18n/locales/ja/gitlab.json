@@ -1,0 +1,208 @@
+{
+  "title": "GitLab Issues",
+  "states": {
+    "opened": "オープン",
+    "closed": "クローズ"
+  },
+  "complexity": {
+    "simple": "シンプル",
+    "standard": "標準",
+    "complex": "複雑"
+  },
+  "header": {
+    "open": "オープン",
+    "searchPlaceholder": "課題を検索..."
+  },
+  "filters": {
+    "opened": "オープン",
+    "closed": "クローズ",
+    "all": "すべて"
+  },
+  "empty": {
+    "noMatch": "検索に一致する課題がありません",
+    "selectIssue": "課題を選択して詳細を表示"
+  },
+  "notConnected": {
+    "title": "GitLabが接続されていません",
+    "description": "課題を同期するには、プロジェクト設定でGitLabトークンとプロジェクトを設定してください。",
+    "openSettings": "設定を開く"
+  },
+  "detail": {
+    "notes": "ノート",
+    "viewTask": "タスクを表示",
+    "createTask": "タスクを作成",
+    "taskLinked": "タスクにリンク済み",
+    "taskId": "タスクID",
+    "description": "説明",
+    "noDescription": "説明がありません。",
+    "assignees": "担当者",
+    "milestone": "マイルストーン"
+  },
+  "investigation": {
+    "title": "課題からタスクを作成",
+    "issuePrefix": "課題",
+    "description": "このGitLab課題からタスクを作成します。タスクはカンバンボードのバックログ列に追加されます。",
+    "selectNotes": "含めるノートを選択",
+    "deselectAll": "すべて選択解除",
+    "selectAll": "すべて選択",
+    "willInclude": "タスクに含まれる内容:",
+    "includeTitle": "課題のタイトルと説明",
+    "includeLink": "GitLab課題へのリンク",
+    "includeLabels": "課題からのラベルとメタデータ",
+    "noNotes": "ノートなし（この課題にはノートがありません）",
+    "failedToLoadNotes": "ノートの読み込みに失敗しました",
+    "taskCreated": "タスクを作成しました！カンバンボードで確認してください。",
+    "creating": "作成中...",
+    "cancel": "キャンセル",
+    "done": "完了",
+    "close": "閉じる"
+  },
+  "settings": {
+    "enableIssues": "GitLab Issuesを有効化",
+    "enableIssuesDescription": "GitLabから課題を同期し、タスクを自動的に作成",
+    "instance": "GitLabインスタンス",
+    "instanceDescription": "https://gitlab.comまたはセルフホストインスタンスのURLを使用",
+    "connectedVia": "GitLab CLI経由で接続",
+    "authenticatedAs": "認証済みユーザー",
+    "useDifferentToken": "別のトークンを使用",
+    "authentication": "GitLab認証",
+    "useManualToken": "手動トークンを使用",
+    "authenticating": "glab CLIで認証中...",
+    "browserWindow": "ログイン用のブラウザウィンドウが開きます。",
+    "personalAccessToken": "パーソナルアクセストークン",
+    "useOAuth": "代わりにOAuthを使用",
+    "tokenScope": "次のスコープでトークンを作成:",
+    "scopeApi": "api",
+    "scopeFrom": "スコープ -",
+    "gitlabSettings": "GitLab設定",
+    "project": "プロジェクト",
+    "enterManually": "手動で入力",
+    "loadingProjects": "プロジェクトを読み込み中...",
+    "selectProject": "プロジェクトを選択...",
+    "searchProjects": "プロジェクトを検索...",
+    "noMatchingProjects": "一致するプロジェクトがありません",
+    "noProjectsFound": "プロジェクトが見つかりません",
+    "selected": "選択済み",
+    "projectFormat": "形式:",
+    "projectFormatExample": "（例: gitlab-org/gitlab）",
+    "connectionStatus": "接続ステータス",
+    "checking": "確認中...",
+    "connectedTo": "接続先",
+    "notConnected": "未接続",
+    "issuesAvailable": "課題が利用可能",
+    "issuesAvailableDescription": "サイドバーからGitLab Issuesにアクセスして、課題を表示、調査、タスクを作成できます。",
+    "defaultBranch": "デフォルトブランチ",
+    "defaultBranchDescription": "タスクワークツリーを作成するためのベースブランチ",
+    "loadingBranches": "ブランチを読み込み中...",
+    "autoDetect": "自動検出（main/master）",
+    "searchBranches": "ブランチを検索...",
+    "noMatchingBranches": "一致するブランチがありません",
+    "noBranchesFound": "ブランチが見つかりません",
+    "branchFromNote": "すべての新しいタスクは次からブランチ:",
+    "autoSyncOnLoad": "読み込み時に自動同期",
+    "autoSyncDescription": "プロジェクト読み込み時に自動的に課題を取得",
+    "cli": {
+      "required": "GitLab CLIが必要です",
+      "notInstalled": "OAuth認証にはGitLab CLI（glab）が必要です。「OAuthを使用」オプションを使用するにはインストールしてください。",
+      "installButton": "glabをインストール",
+      "installing": "インストール中...",
+      "installSuccess": "ターミナルでインストールが開始されました。完了したら更新をクリックしてください。",
+      "refresh": "更新",
+      "learnMore": "詳細",
+      "installed": "GitLab CLIがインストール済み:"
+    }
+  },
+  "mergeRequests": {
+    "title": "GitLabマージリクエスト",
+    "newMR": "新規マージリクエスト",
+    "selectMR": "マージリクエストを選択して詳細を表示",
+    "states": {
+      "opened": "オープン",
+      "closed": "クローズ",
+      "merged": "マージ済み",
+      "locked": "ロック"
+    },
+    "filters": {
+      "opened": "オープン",
+      "closed": "クローズ",
+      "merged": "マージ済み",
+      "all": "すべて"
+    }
+  },
+  "mrReview": {
+    "runReview": "AIレビューを実行",
+    "reviewing": "レビュー中...",
+    "followupReview": "フォローアップレビュー",
+    "newCommits": "新しいコミット",
+    "newCommitsPlural": "新しいコミット",
+    "cancel": "キャンセル",
+    "postFindings": "指摘を投稿",
+    "posting": "投稿中...",
+    "postedTo": "GitLabに投稿済み",
+    "approve": "承認",
+    "approving": "承認中...",
+    "merge": "MRをマージ",
+    "merging": "マージ中...",
+    "aiReviewResult": "AIレビュー結果",
+    "followupReviewResult": "フォローアップレビュー",
+    "description": "説明",
+    "noDescription": "説明がありません。",
+    "labels": "ラベル",
+    "status": {
+      "notReviewed": "未レビュー",
+      "notReviewedDesc": "AIレビューを実行してこのMRを分析",
+      "reviewComplete": "レビュー完了",
+      "reviewCompleteDesc": "件の指摘が見つかりました。選択してGitLabに投稿してください。",
+      "waitingForChanges": "変更待ち",
+      "waitingForChangesDesc": "件の指摘を投稿しました。コントリビューターが問題に対処するのを待っています。",
+      "readyToMerge": "マージ準備完了",
+      "readyToMergeDesc": "ブロック問題は見つかりませんでした。このMRをマージできます。",
+      "needsAttention": "対応が必要",
+      "needsAttentionDesc": "件の指摘をGitLabに投稿する必要があります。",
+      "readyForFollowup": "フォローアップ準備完了",
+      "readyForFollowupDesc": "レビュー以降。問題が解決されたか確認するためにフォローアップを実行してください。",
+      "blockingIssues": "ブロック中の問題",
+      "blockingIssuesDesc": "件のブロック問題が未解決です。"
+    },
+    "overallStatus": {
+      "approve": "承認",
+      "requestChanges": "変更を要求",
+      "comment": "コメント"
+    },
+    "resolution": {
+      "resolved": "解決済み",
+      "stillOpen": "未解決",
+      "newIssue": "新しい問題",
+      "newIssues": "新しい問題"
+    }
+  },
+  "findings": {
+    "summary": "選択済み",
+    "selectCriticalHigh": "ブロッカー/必須を選択",
+    "selectAll": "すべて選択",
+    "clear": "クリア",
+    "noIssues": "問題は見つかりませんでした！コードは良好です。",
+    "suggestedFix": "修正提案:",
+    "posted": "投稿済み",
+    "severity": {
+      "critical": "ブロッカー",
+      "criticalDesc": "修正必須",
+      "high": "必須",
+      "highDesc": "修正すべき",
+      "medium": "推奨",
+      "mediumDesc": "品質向上",
+      "low": "提案",
+      "lowDesc": "検討"
+    },
+    "category": {
+      "security": "セキュリティ",
+      "quality": "品質",
+      "style": "スタイル",
+      "test": "テスト",
+      "docs": "ドキュメント",
+      "pattern": "パターン",
+      "performance": "パフォーマンス",
+      "logic": "ロジック"
+    }
+  }
+}

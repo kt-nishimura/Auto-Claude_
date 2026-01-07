@@ -274,5 +274,112 @@
     "done": "Terminé",
     "failedLabel": "Échoué",
     "starting": "Démarrage..."
+  },
+  "insights": {
+    "title": "Insights",
+    "subtitle": "Posez des questions sur votre base de code",
+    "chatHistory": "Historique des conversations",
+    "noConversations": "Pas encore de conversations",
+    "startConversation": "Démarrer une conversation",
+    "startDescription": "Posez des questions sur votre base de code, obtenez des suggestions d'améliorations ou discutez des fonctionnalités à implémenter.",
+    "newChat": "Nouvelle discussion",
+    "balanced": "Équilibré",
+    "suggestions": {
+      "architecture": "Quelle est l'architecture de ce projet ?",
+      "codeQuality": "Suggérer des améliorations de qualité du code",
+      "features": "Quelles fonctionnalités pourrais-je ajouter ?",
+      "security": "Y a-t-il des problèmes de sécurité ?"
+    },
+    "inputPlaceholder": "Posez une question sur votre base de code...",
+    "thinking": "Réflexion...",
+    "streaming": "Génération de la réponse...",
+    "hideSidebar": "Masquer la barre latérale",
+    "showSidebar": "Afficher la barre latérale",
+    "sendHint": "Appuyez sur Entrée pour envoyer, Shift+Entrée pour nouvelle ligne",
+    "agentProfile": "Profil d'agent",
+    "custom": "Personnalisé...",
+    "customDesc": "Choisir le modèle et le niveau de réflexion",
+    "today": "Aujourd'hui",
+    "yesterday": "Hier",
+    "daysAgo": "Il y a {{count}} jours",
+    "deleteConversation": "Supprimer la conversation ?",
+    "deleteConversationDesc": "Cela supprimera définitivement cette conversation et tous ses messages."
+  },
+  "roadmap": {
+    "title": "Feuille de route",
+    "noRoadmapYet": "Pas encore de feuille de route",
+    "noRoadmapDescription": "Générez une feuille de route IA qui comprend le public cible de votre projet et crée un plan de fonctionnalités stratégique.",
+    "generateRoadmap": "Générer la feuille de route",
+    "generating": "Génération...",
+    "phases": "Phases",
+    "features": "Fonctionnalités",
+    "addFeature": "Ajouter une fonctionnalité"
+  },
+  "ideation": {
+    "title": "Idéation",
+    "subtitle": "Idées de fonctionnalités générées par IA pour votre projet",
+    "ideas": "{{count}} idées",
+    "noIdeas": "Pas encore d'idées",
+    "noIdeasDescription": "Générez des idées de fonctionnalités IA pour votre projet.",
+    "generateIdeas": "Générer des idées",
+    "categories": {
+      "all": "Tout",
+      "code": "Code",
+      "uiux": "UI/UX",
+      "performance": "Performance",
+      "security": "Sécurité",
+      "documentation": "Documentation"
+    },
+    "selected": "{{count}} sélectionnés",
+    "delete": "Supprimer",
+    "clearSelection": "Effacer la sélection",
+    "selectAll": "Tout sélectionner",
+    "hideDismissed": "Masquer les ignorés",
+    "showDismissed": "Afficher les ignorés",
+    "configure": "Configurer",
+    "addMore": "Ajouter plus",
+    "addMoreTypes": "Ajouter plus de types d'idéation",
+    "dismissAll": "Ignorer toutes les idées",
+    "regenerate": "Régénérer les idées"
+  },
+  "changelog": {
+    "title": "Générateur de changelog",
+    "step1": "Étape 1 : Sélectionnez les tâches terminées à inclure",
+    "step2": "Étape 2 : Générer le changelog",
+    "step3": "Étape 3 : Publication",
+    "steps": {
+      "select": "Sélectionner",
+      "generate": "Générer",
+      "release": "Publier"
+    },
+    "source": "Source du changelog",
+    "completedTasks": "Tâches terminées",
+    "completedTasksDesc": "Générer à partir des tâches spec terminées",
+    "gitHistory": "Historique Git",
+    "gitHistoryDesc": "Générer à partir des commits récents ou de la plage de tags",
+    "branchComparison": "Comparaison de branches",
+    "branchComparisonDesc": "Générer à partir des commits entre deux branches",
+    "tasksSelected": "{{selected}} sur {{total}} tâches sélectionnées",
+    "selectAll": "Tout sélectionner",
+    "clear": "Effacer",
+    "noCompletedTasks": "Aucune tâche terminée",
+    "noCompletedTasksDesc": "Terminez des tâches dans le tableau Kanban et marquez-les comme \"Terminé\" pour les inclure dans votre changelog."
+  },
+  "context": {
+    "tabs": {
+      "projectIndex": "Index du projet",
+      "memories": "Mémoires"
+    },
+    "projectStructure": "Structure du projet",
+    "projectStructureDesc": "Connaissances découvertes par l'IA sur votre base de code",
+    "overview": "Aperçu",
+    "services": "SERVICES",
+    "unknown": "Inconnu",
+    "testing": "Tests",
+    "dependencies": "Dépendances",
+    "keyDirectories": "Répertoires clés",
+    "externalServices": "Services externes",
+    "monorepo": "Monorepo",
+    "servicesCount": "{{count}} services"
   }
 }

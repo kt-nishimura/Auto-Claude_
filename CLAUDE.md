@@ -2,6 +2,11 @@
 
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
+## 言語設定 / Language Settings
+
+すべての応答、コメント、コミットメッセージは日本語で記述してください。
+All responses, comments, and commit messages should be written in Japanese.
+
 ## Project Overview
 
 Auto Claude is a multi-agent autonomous coding framework that builds software through coordinated AI agent sessions. It uses the Claude Agent SDK to run agents in isolated workspaces with security controls.

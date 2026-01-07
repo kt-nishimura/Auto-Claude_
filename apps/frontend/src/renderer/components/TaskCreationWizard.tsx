@@ -68,6 +68,7 @@ export function TaskCreationWizard({
   ) || DEFAULT_AGENT_PROFILES.find(p => p.id === 'auto')!;
 
   const [title, setTitle] = useState('');
+  const { t } = useTranslation(['tasks', 'common']);
   const [description, setDescription] = useState('');
   const [isCreating, setIsCreating] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -732,11 +733,11 @@ export function TaskCreationWizard({
           >
         <DialogHeader>
           <div className="flex items-center justify-between">
-            <DialogTitle className="text-foreground">Create New Task</DialogTitle>
+            <DialogTitle className="text-foreground">{t('tasks:creation.title')}</DialogTitle>
             {isDraftRestored && (
               <div className="flex items-center gap-2">
                 <span className="text-xs bg-info/10 text-info px-2 py-1 rounded-md">
-                  Draft restored
+                  {t('tasks:creation.draftRestored')}
                 </span>
                 <Button
                   variant="ghost"
@@ -745,14 +746,13 @@ export function TaskCreationWizard({
                   onClick={handleDiscardDraft}
                 >
                   <RotateCcw className="h-3 w-3 mr-1" />
-                  Start Fresh
+                  {t('tasks:creation.startFresh')}
                 </Button>
               </div>
             )}
           </div>
           <DialogDescription>
-            Describe what you want to build. The AI will analyze your request and
-            create a detailed specification.
+            {t('tasks:creation.description')}
           </DialogDescription>
         </DialogHeader>
 
@@ -760,7 +760,7 @@ export function TaskCreationWizard({
           {/* Description (Primary - Required) */}
           <div className="space-y-2">
             <Label htmlFor="description" className="text-sm font-medium text-foreground">
-              Description <span className="text-destructive">*</span>
+              {t('tasks:creation.descriptionLabel')} <span className="text-destructive">*</span>
             </Label>
             {/* Wrap textarea for file @mentions */}
             <div className="relative">
@@ -795,7 +795,7 @@ export function TaskCreationWizard({
               <Textarea
                 ref={descriptionRef}
                 id="description"
-                placeholder="Describe the feature, bug fix, or improvement you want to implement. Be as specific as possible about requirements, constraints, and expected behavior. Type @ to reference files."
+                placeholder={t('tasks:creation.descriptionPlaceholder')}
                 value={description}
                 onChange={handleDescriptionChange}
                 onPaste={handlePaste}
@@ -825,7 +825,7 @@ export function TaskCreationWizard({
               )}
             </div>
             <p id="description-help" className="text-xs text-muted-foreground">
-              Files and images can be copy/pasted or dragged & dropped into the description.
+              {t('tasks:creation.descriptionHint')}
             </p>
 
             {/* Image Thumbnails - displayed inline below description */}
@@ -875,17 +875,17 @@ export function TaskCreationWizard({
           {/* Title (Optional - Auto-generated if empty) */}
           <div className="space-y-2">
             <Label htmlFor="title" className="text-sm font-medium text-foreground">
-              Task Title <span className="text-muted-foreground font-normal">(optional)</span>
+              {t('tasks:creation.titleLabel')} <span className="text-muted-foreground font-normal">({t('tasks:creation.titleOptional')})</span>
             </Label>
             <Input
               id="title"
-              placeholder="Leave empty to auto-generate from description"
+              placeholder={t('tasks:creation.titlePlaceholder')}
               value={title}
               onChange={(e) => setTitle(e.target.value)}
               disabled={isCreating}
             />
             <p className="text-xs text-muted-foreground">
-              A short, descriptive title will be generated automatically if left empty.
+              {t('tasks:creation.titleHint')}
             </p>
           </div>
 
@@ -951,7 +951,7 @@ export function TaskCreationWizard({
                     disabled={isCreating}
                   >
                     <SelectTrigger id="category" className="h-9">
-                      <SelectValue placeholder="Select category" />
+                      <SelectValue placeholder={t('common:labels.selectCategory')} />
                     </SelectTrigger>
                     <SelectContent>
                       {Object.entries(TASK_CATEGORY_LABELS).map(([value, label]) => (
@@ -974,7 +974,7 @@ export function TaskCreationWizard({
                     disabled={isCreating}
                   >
                     <SelectTrigger id="priority" className="h-9">
-                      <SelectValue placeholder="Select priority" />
+                      <SelectValue placeholder={t('common:labels.selectPriority')} />
                     </SelectTrigger>
                     <SelectContent>
                       {Object.entries(TASK_PRIORITY_LABELS).map(([value, label]) => (
@@ -997,7 +997,7 @@ export function TaskCreationWizard({
                     disabled={isCreating}
                   >
                     <SelectTrigger id="complexity" className="h-9">
-                      <SelectValue placeholder="Select complexity" />
+                      <SelectValue placeholder={t('common:labels.selectComplexity')} />
                     </SelectTrigger>
                     <SelectContent>
                       {Object.entries(TASK_COMPLEXITY_LABELS).map(([value, label]) => (
@@ -1020,7 +1020,7 @@ export function TaskCreationWizard({
                     disabled={isCreating}
                   >
                     <SelectTrigger id="impact" className="h-9">
-                      <SelectValue placeholder="Select impact" />
+                      <SelectValue placeholder={t('common:labels.selectImpact')} />
                     </SelectTrigger>
                     <SelectContent>
                       {Object.entries(TASK_IMPACT_LABELS).map(([value, label]) => (

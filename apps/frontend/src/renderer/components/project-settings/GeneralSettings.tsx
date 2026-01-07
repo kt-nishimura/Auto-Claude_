@@ -111,7 +111,7 @@ export function GeneralSettings({
 
           {/* Agent Settings */}
           <section className="space-y-4">
-            <h3 className="text-sm font-semibold text-foreground">Agent Configuration</h3>
+            <h3 className="text-sm font-semibold text-foreground">{t('changelog.agentConfiguration')}</h3>
             <div className="space-y-2">
               <Label htmlFor="model" className="text-sm font-medium text-foreground">Model</Label>
               <Select
@@ -152,10 +152,10 @@ export function GeneralSettings({
 
           {/* Notifications */}
           <section className="space-y-4">
-            <h3 className="text-sm font-semibold text-foreground">Notifications</h3>
+            <h3 className="text-sm font-semibold text-foreground">{t('settings:notifications.title', 'Notifications')}</h3>
             <div className="space-y-4">
               <div className="flex items-center justify-between">
-                <Label className="font-normal text-foreground">On Task Complete</Label>
+                <Label className="font-normal text-foreground">{t('changelog.onTaskComplete')}</Label>
                 <Switch
                   checked={settings.notifications.onTaskComplete}
                   onCheckedChange={(checked) =>
@@ -170,7 +170,7 @@ export function GeneralSettings({
                 />
               </div>
               <div className="flex items-center justify-between">
-                <Label className="font-normal text-foreground">On Task Failed</Label>
+                <Label className="font-normal text-foreground">{t('changelog.onTaskFailed')}</Label>
                 <Switch
                   checked={settings.notifications.onTaskFailed}
                   onCheckedChange={(checked) =>
@@ -185,7 +185,7 @@ export function GeneralSettings({
                 />
               </div>
               <div className="flex items-center justify-between">
-                <Label className="font-normal text-foreground">On Review Needed</Label>
+                <Label className="font-normal text-foreground">{t('changelog.onReviewNeeded')}</Label>
                 <Switch
                   checked={settings.notifications.onReviewNeeded}
                   onCheckedChange={(checked) =>

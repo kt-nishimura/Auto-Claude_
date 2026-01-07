@@ -88,7 +88,7 @@ interface TaskEditDialogProps {
 }
 
 export function TaskEditDialog({ task, open, onOpenChange, onSaved }: TaskEditDialogProps) {
-  const { t } = useTranslation('tasks');
+  const { t } = useTranslation(['tasks', 'common']);
   // Get selected agent profile from settings for defaults
   const { settings } = useSettingsStore();
   const selectedProfile = DEFAULT_AGENT_PROFILES.find(
@@ -463,9 +463,9 @@ export function TaskEditDialog({ task, open, onOpenChange, onSaved }: TaskEditDi
     <Dialog open={open} onOpenChange={handleClose}>
       <DialogContent className="sm:max-w-[550px] max-h-[90vh] overflow-y-auto">
         <DialogHeader>
-          <DialogTitle className="text-foreground">Edit Task</DialogTitle>
+          <DialogTitle className="text-foreground">{t('tasks:edit.title')}</DialogTitle>
           <DialogDescription>
-            Update task details including title, description, classification, images, and settings. Changes will be saved to the spec files.
+            {t('tasks:edit.description')}
           </DialogDescription>
         </DialogHeader>
 
@@ -473,12 +473,12 @@ export function TaskEditDialog({ task, open, onOpenChange, onSaved }: TaskEditDi
           {/* Description (Primary - Required) */}
           <div className="space-y-2">
             <Label htmlFor="edit-description" className="text-sm font-medium text-foreground">
-              Description <span className="text-destructive">*</span>
+              {t('tasks:edit.descriptionLabel')} <span className="text-destructive">{t('tasks:edit.descriptionRequired')}</span>
             </Label>
             <Textarea
               ref={descriptionRef}
               id="edit-description"
-              placeholder="Describe the feature, bug fix, or improvement. Be as specific as possible about requirements, constraints, and expected behavior."
+              placeholder={t('tasks:edit.descriptionPlaceholder')}
               value={description}
               onChange={(e) => setDescription(e.target.value)}
               onPaste={handlePaste}
@@ -501,11 +501,11 @@ export function TaskEditDialog({ task, open, onOpenChange, onSaved }: TaskEditDi
           {/* Title (Optional - Auto-generated if empty) */}
           <div className="space-y-2">
             <Label htmlFor="edit-title" className="text-sm font-medium text-foreground">
-              Task Title <span className="text-muted-foreground font-normal">(optional)</span>
+              {t('tasks:edit.titleLabel')} <span className="text-muted-foreground font-normal">({t('tasks:edit.titleOptional')})</span>
             </Label>
             <Input
               id="edit-title"
-              placeholder="Leave empty to auto-generate from description"
+              placeholder={t('tasks:edit.titlePlaceholder')}
               value={title}
               onChange={(e) => setTitle(e.target.value)}
               disabled={isSaving}
@@ -577,7 +577,7 @@ export function TaskEditDialog({ task, open, onOpenChange, onSaved }: TaskEditDi
                     disabled={isSaving}
                   >
                     <SelectTrigger id="edit-category" className="h-9">
-                      <SelectValue placeholder="Select category" />
+                      <SelectValue placeholder={t('common:labels.selectCategory')} />
                     </SelectTrigger>
                     <SelectContent>
                       {Object.entries(TASK_CATEGORY_LABELS).map(([value, label]) => (
@@ -600,7 +600,7 @@ export function TaskEditDialog({ task, open, onOpenChange, onSaved }: TaskEditDi
                     disabled={isSaving}
                   >
                     <SelectTrigger id="edit-priority" className="h-9">
-                      <SelectValue placeholder="Select priority" />
+                      <SelectValue placeholder={t('common:labels.selectPriority')} />
                     </SelectTrigger>
                     <SelectContent>
                       {Object.entries(TASK_PRIORITY_LABELS).map(([value, label]) => (
@@ -623,7 +623,7 @@ export function TaskEditDialog({ task, open, onOpenChange, onSaved }: TaskEditDi
                     disabled={isSaving}
                   >
                     <SelectTrigger id="edit-complexity" className="h-9">
-                      <SelectValue placeholder="Select complexity" />
+                      <SelectValue placeholder={t('common:labels.selectComplexity')} />
                     </SelectTrigger>
                     <SelectContent>
                       {Object.entries(TASK_COMPLEXITY_LABELS).map(([value, label]) => (
@@ -646,7 +646,7 @@ export function TaskEditDialog({ task, open, onOpenChange, onSaved }: TaskEditDi
                     disabled={isSaving}
                   >
                     <SelectTrigger id="edit-impact" className="h-9">
-                      <SelectValue placeholder="Select impact" />
+                      <SelectValue placeholder={t('common:labels.selectImpact')} />
                     </SelectTrigger>
                     <SelectContent>
                       {Object.entries(TASK_IMPACT_LABELS).map(([value, label]) => (
@@ -740,7 +740,7 @@ export function TaskEditDialog({ task, open, onOpenChange, onSaved }: TaskEditDi
 
         <DialogFooter>
           <Button variant="outline" onClick={handleClose} disabled={isSaving}>
-            Cancel
+            {t('tasks:edit.cancel')}
           </Button>
           <Button
             onClick={handleSave}
@@ -749,10 +749,10 @@ export function TaskEditDialog({ task, open, onOpenChange, onSaved }: TaskEditDi
             {isSaving ? (
               <>
                 <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-                Saving...
+                {t('tasks:edit.saving')}
               </>
             ) : (
-              'Save Changes'
+              t('tasks:edit.saveChanges')
             )}
           </Button>
         </DialogFooter>

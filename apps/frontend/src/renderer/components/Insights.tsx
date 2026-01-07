@@ -223,7 +223,7 @@ export function Insights({ projectId }: InsightsProps) {
               size="icon"
               className="h-8 w-8"
               onClick={() => setShowSidebar(!showSidebar)}
-              title={showSidebar ? 'Hide sidebar' : 'Show sidebar'}
+              title={showSidebar ? t('insights.hideSidebar') : t('insights.showSidebar')}
             >
               {showSidebar ? (
                 <PanelLeftClose className="h-4 w-4" />
@@ -235,9 +235,9 @@ export function Insights({ projectId }: InsightsProps) {
               <Sparkles className="h-5 w-5 text-primary" />
             </div>
             <div>
-              <h2 className="font-semibold text-foreground">Insights</h2>
+              <h2 className="font-semibold text-foreground">{t('insights.title')}</h2>
               <p className="text-sm text-muted-foreground">
-                Ask questions about your codebase
+                {t('insights.subtitle')}
               </p>
             </div>
           </div>
@@ -253,7 +253,7 @@ export function Insights({ projectId }: InsightsProps) {
               onClick={handleNewSession}
             >
               <Plus className="mr-2 h-4 w-4" />
-              New Chat
+              {t('insights.newChat')}
             </Button>
           </div>
         </div>
@@ -266,30 +266,29 @@ export function Insights({ projectId }: InsightsProps) {
               <MessageSquare className="h-8 w-8 text-muted-foreground" />
             </div>
             <h3 className="mb-2 text-lg font-medium text-foreground">
-              Start a Conversation
+              {t('insights.startConversation')}
             </h3>
             <p className="max-w-md text-sm text-muted-foreground">
-              Ask questions about your codebase, get suggestions for improvements,
-              or discuss features you'd like to implement.
+              {t('insights.startDescription')}
             </p>
             <div className="mt-6 flex flex-wrap justify-center gap-2">
               {[
-                'What is the architecture of this project?',
-                'Suggest improvements for code quality',
-                'What features could I add next?',
-                'Are there any security concerns?'
+                { key: 'architecture', text: t('insights.suggestions.architecture') },
+                { key: 'codeQuality', text: t('insights.suggestions.codeQuality') },
+                { key: 'features', text: t('insights.suggestions.features') },
+                { key: 'security', text: t('insights.suggestions.security') }
               ].map((suggestion) => (
                 <Button
-                  key={suggestion}
+                  key={suggestion.key}
                   variant="outline"
                   size="sm"
                   className="text-xs"
                   onClick={() => {
-                    setInputValue(suggestion);
+                    setInputValue(suggestion.text);
                     textareaRef.current?.focus();
                   }}
                 >
-                  {suggestion}
+                  {suggestion.text}
                 </Button>
               ))}
             </div>
@@ -340,7 +339,7 @@ export function Insights({ projectId }: InsightsProps) {
                 </div>
                 <div className="flex items-center gap-2 text-sm text-muted-foreground">
                   <Loader2 className="h-4 w-4 animate-spin" />
-                  Thinking...
+                  {t('insights.thinking')}
                 </div>
               </div>
             )}
@@ -366,7 +365,7 @@ export function Insights({ projectId }: InsightsProps) {
             value={inputValue}
             onChange={(e) => setInputValue(e.target.value)}
             onKeyDown={handleKeyDown}
-            placeholder="Ask about your codebase..."
+            placeholder={t('insights.inputPlaceholder')}
             className="min-h-[80px] resize-none"
             disabled={isLoading}
           />

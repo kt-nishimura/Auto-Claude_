@@ -274,5 +274,112 @@
     "done": "Done",
     "failedLabel": "Failed",
     "starting": "Starting..."
+  },
+  "insights": {
+    "title": "Insights",
+    "subtitle": "Ask questions about your codebase",
+    "chatHistory": "Chat History",
+    "noConversations": "No conversations yet",
+    "startConversation": "Start a Conversation",
+    "startDescription": "Ask questions about your codebase, get suggestions for improvements, or discuss features you'd like to implement.",
+    "newChat": "New Chat",
+    "balanced": "Balanced",
+    "suggestions": {
+      "architecture": "What is the architecture of this project?",
+      "codeQuality": "Suggest improvements for code quality",
+      "features": "What features could I add next?",
+      "security": "Are there any security concerns?"
+    },
+    "inputPlaceholder": "Ask a question about your codebase...",
+    "thinking": "Thinking...",
+    "streaming": "Generating response...",
+    "hideSidebar": "Hide sidebar",
+    "showSidebar": "Show sidebar",
+    "sendHint": "Press Enter to send, Shift+Enter for new line",
+    "agentProfile": "Agent Profile",
+    "custom": "Custom...",
+    "customDesc": "Choose model & thinking level",
+    "today": "Today",
+    "yesterday": "Yesterday",
+    "daysAgo": "{{count}} days ago",
+    "deleteConversation": "Delete conversation?",
+    "deleteConversationDesc": "This will permanently delete this conversation and all its messages."
+  },
+  "roadmap": {
+    "title": "Roadmap",
+    "noRoadmapYet": "No Roadmap Yet",
+    "noRoadmapDescription": "Generate an AI-powered roadmap that understands your project's target audience and creates a strategic feature plan.",
+    "generateRoadmap": "Generate Roadmap",
+    "generating": "Generating...",
+    "phases": "Phases",
+    "features": "Features",
+    "addFeature": "Add Feature"
+  },
+  "ideation": {
+    "title": "Ideation",
+    "subtitle": "AI-generated feature ideas for your project",
+    "ideas": "{{count}} ideas",
+    "noIdeas": "No ideas yet",
+    "noIdeasDescription": "Generate AI-powered feature ideas for your project.",
+    "generateIdeas": "Generate Ideas",
+    "categories": {
+      "all": "All",
+      "code": "Code",
+      "uiux": "UI/UX",
+      "performance": "Performance",
+      "security": "Security",
+      "documentation": "Documentation"
+    },
+    "selected": "{{count}} selected",
+    "delete": "Delete",
+    "clearSelection": "Clear selection",
+    "selectAll": "Select all",
+    "hideDismissed": "Hide dismissed",
+    "showDismissed": "Show dismissed",
+    "configure": "Configure",
+    "addMore": "Add More",
+    "addMoreTypes": "Add more ideation types",
+    "dismissAll": "Dismiss all ideas",
+    "regenerate": "Regenerate Ideas"
+  },
+  "changelog": {
+    "title": "Changelog Generator",
+    "step1": "Step 1: Select completed tasks to include",
+    "step2": "Step 2: Generate changelog",
+    "step3": "Step 3: Release",
+    "steps": {
+      "select": "Select",
+      "generate": "Generate",
+      "release": "Release"
+    },
+    "source": "Changelog Source",
+    "completedTasks": "Completed Tasks",
+    "completedTasksDesc": "Generate from completed spec tasks",
+    "gitHistory": "Git History",
+    "gitHistoryDesc": "Generate from recent commits or tag range",
+    "branchComparison": "Branch Comparison",
+    "branchComparisonDesc": "Generate from commits between two branches",
+    "tasksSelected": "{{selected}} of {{total}} tasks selected",
+    "selectAll": "Select All",
+    "clear": "Clear",
+    "noCompletedTasks": "No Completed Tasks",
+    "noCompletedTasksDesc": "Complete tasks in the Kanban board and mark them as \"Done\" to include them in your changelog."
+  },
+  "context": {
+    "tabs": {
+      "projectIndex": "Project Index",
+      "memories": "Memories"
+    },
+    "projectStructure": "Project Structure",
+    "projectStructureDesc": "AI-discovered knowledge about your codebase",
+    "overview": "Overview",
+    "services": "SERVICES",
+    "unknown": "Unknown",
+    "testing": "Testing",
+    "dependencies": "Dependencies",
+    "keyDirectories": "Key Directories",
+    "externalServices": "External Services",
+    "monorepo": "Monorepo",
+    "servicesCount": "{{count}} services"
   }
 }

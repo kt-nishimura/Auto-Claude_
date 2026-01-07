@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { Server, ChevronDown, ChevronRight, HardDrive, Mail, CreditCard, Zap } from 'lucide-react';
 import { Badge } from '../../ui/badge';
 import {
@@ -13,6 +14,7 @@ interface ExternalServicesSectionProps {
 }
 
 export function ExternalServicesSection({ services }: ExternalServicesSectionProps) {
+  const { t } = useTranslation('common');
   const [expanded, setExpanded] = useState(false);
 
   if (!services || !Object.values(services).some(arr => arr && arr.length > 0)) {
@@ -28,7 +30,7 @@ export function ExternalServicesSection({ services }: ExternalServicesSectionPro
       <CollapsibleTrigger className="flex w-full items-center justify-between text-xs font-medium hover:text-foreground">
         <div className="flex items-center gap-2">
           <Server className="h-3 w-3" />
-          External Services
+          {t('context.externalServices')}
         </div>
         {expanded ? <ChevronDown className="h-3 w-3" /> : <ChevronRight className="h-3 w-3" />}
       </CollapsibleTrigger>

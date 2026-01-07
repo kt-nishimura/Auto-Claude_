@@ -1,4 +1,5 @@
 import { Lightbulb, Eye, EyeOff, Settings2, Plus, Trash2, RefreshCw, CheckSquare, X } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 import { Button } from '../ui/button';
 import { Badge } from '../ui/badge';
 import { Tooltip, TooltipContent, TooltipTrigger } from '../ui/tooltip';
@@ -39,6 +40,7 @@ export function IdeationHeader({
   hasActiveIdeas,
   canAddMore
 }: IdeationHeaderProps) {
+  const { t } = useTranslation('common');
   const hasSelection = selectedCount > 0;
   return (
     <div className="shrink-0 border-b border-border p-4 bg-card/50">
@@ -46,11 +48,11 @@ export function IdeationHeader({
         <div>
           <div className="flex items-center gap-2 mb-1">
             <Lightbulb className="h-5 w-5 text-primary" />
-            <h2 className="text-lg font-semibold">Ideation</h2>
-            <Badge variant="outline">{totalIdeas} ideas</Badge>
+            <h2 className="text-lg font-semibold">{t('ideation.title')}</h2>
+            <Badge variant="outline">{t('ideation.ideas', { count: totalIdeas })}</Badge>
           </div>
           <p className="text-sm text-muted-foreground">
-            AI-generated feature ideas for your project
+            {t('ideation.subtitle')}
           </p>
         </div>
         <div className="flex items-center gap-2">
@@ -58,7 +60,7 @@ export function IdeationHeader({
           {hasSelection ? (
             <>
               <Badge variant="secondary" className="mr-1">
-                {selectedCount} selected
+                {t('ideation.selected', { count: selectedCount })}
               </Badge>
               <Button
                 variant="outline"
@@ -67,7 +69,7 @@ export function IdeationHeader({
                 onClick={onDeleteSelected}
               >
                 <Trash2 className="h-4 w-4 mr-1" />
-                Delete
+                {t('ideation.delete')}
               </Button>
               <Tooltip>
                 <TooltipTrigger asChild>
@@ -79,7 +81,7 @@ export function IdeationHeader({
                     <X className="h-4 w-4" />
                   </Button>
                 </TooltipTrigger>
-                <TooltipContent>Clear selection</TooltipContent>
+                <TooltipContent>{t('ideation.clearSelection')}</TooltipContent>
               </Tooltip>
               <div className="w-px h-6 bg-border mx-1" />
             </>
@@ -95,7 +97,7 @@ export function IdeationHeader({
                     <CheckSquare className="h-4 w-4" />
                   </Button>
                 </TooltipTrigger>
-                <TooltipContent>Select all</TooltipContent>
+                <TooltipContent>{t('ideation.selectAll')}</TooltipContent>
               </Tooltip>
             )
           )}
@@ -112,7 +114,7 @@ export function IdeationHeader({
               </Button>
             </TooltipTrigger>
             <TooltipContent>
-              {showDismissed ? 'Hide dismissed' : 'Show dismissed'}
+              {showDismissed ? t('ideation.hideDismissed') : t('ideation.showDismissed')}
             </TooltipContent>
           </Tooltip>
           <Tooltip>
@@ -125,7 +127,7 @@ export function IdeationHeader({
                 <Settings2 className="h-4 w-4" />
               </Button>
             </TooltipTrigger>
-            <TooltipContent>Configure</TooltipContent>
+            <TooltipContent>{t('ideation.configure')}</TooltipContent>
           </Tooltip>
           {canAddMore && (
             <Tooltip>
@@ -135,10 +137,10 @@ export function IdeationHeader({
                   onClick={onOpenAddMore}
                 >
                   <Plus className="h-4 w-4 mr-1" />
-                  Add More
+                  {t('ideation.addMore')}
                 </Button>
               </TooltipTrigger>
-              <TooltipContent>Add more ideation types</TooltipContent>
+              <TooltipContent>{t('ideation.addMoreTypes')}</TooltipContent>
             </Tooltip>
           )}
           {hasActiveIdeas && !hasSelection && (
@@ -153,7 +155,7 @@ export function IdeationHeader({
                   <Trash2 className="h-4 w-4" />
                 </Button>
               </TooltipTrigger>
-              <TooltipContent>Dismiss all ideas</TooltipContent>
+              <TooltipContent>{t('ideation.dismissAll')}</TooltipContent>
             </Tooltip>
           )}
           <Tooltip>
@@ -162,7 +164,7 @@ export function IdeationHeader({
                 <RefreshCw className="h-4 w-4" />
               </Button>
             </TooltipTrigger>
-            <TooltipContent>Regenerate Ideas</TooltipContent>
+            <TooltipContent>{t('ideation.regenerate')}</TooltipContent>
           </Tooltip>
         </div>
       </div>
