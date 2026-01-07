@@ -557,45 +557,33 @@ def create_client(
 
     # Check for worktree paths and extract original project directory
     # This handles both new (.auto-claude/worktrees/tasks/) and legacy (.worktrees/) paths
+    # Note: Windows paths are normalized to forward slashes before comparison
     worktree_markers = [
-        ".auto-claude/worktrees/tasks/",  # New worktree location
-        ".auto-claude\\worktrees\\tasks\\",  # Windows path variant
+        "/.auto-claude/worktrees/tasks/",  # New worktree location
         "/.worktrees/",  # Legacy worktree location
-        "\\.worktrees\\",  # Legacy Windows path variant
     ]
     project_path_posix = str(resolved_project_path).replace("\\", "/")
 
     for marker in worktree_markers:
-        marker_posix = marker.replace("\\", "/")
-        if marker_posix in project_path_posix:
+        if marker in project_path_posix:
             # Extract the original project directory (parent of worktree location)
-            original_project_str = project_path_posix.split(marker_posix)[0]
+            # Use rsplit to get the rightmost occurrence (handles nested projects)
+            original_project_str = project_path_posix.rsplit(marker, 1)[0]
             original_project_dir = Path(original_project_str)
 
-            # Add permissions for original project's .auto-claude/ directory
-            # This allows agents to access spec files when running in a worktree
-            auto_claude_dir = original_project_dir / ".auto-claude"
-            if auto_claude_dir.exists():
-                auto_claude_str = str(auto_claude_dir.resolve())
-                original_project_permissions.extend([
-                    f"Read({auto_claude_str}/**)",
-                    f"Write({auto_claude_str}/**)",
-                    f"Edit({auto_claude_str}/**)",
-                    f"Glob({auto_claude_str}/**)",
-                    f"Grep({auto_claude_str}/**)",
-                ])
+            # Grant permissions for relevant directories in the original project
+            permission_ops = ["Read", "Write", "Edit", "Glob", "Grep"]
+            dirs_to_permit = [
+                original_project_dir / ".auto-claude",
+                original_project_dir / ".worktrees",  # Legacy support
+            ]
 
-            # Also add permissions for legacy .worktrees/ directory if it exists
-            legacy_worktrees_dir = original_project_dir / ".worktrees"
-            if legacy_worktrees_dir.exists():
-                legacy_worktrees_str = str(legacy_worktrees_dir.resolve())
-                original_project_permissions.extend([
-                    f"Read({legacy_worktrees_str}/**)",
-                    f"Write({legacy_worktrees_str}/**)",
-                    f"Edit({legacy_worktrees_str}/**)",
-                    f"Glob({legacy_worktrees_str}/**)",
-                    f"Grep({legacy_worktrees_str}/**)",
-                ])
+            for dir_path in dirs_to_permit:
+                if dir_path.exists():
+                    path_str = str(dir_path.resolve())
+                    original_project_permissions.extend(
+                        [f"{op}({path_str}/**)" for op in permission_ops]
+                    )
             break
 
     security_settings = {
@@ -660,7 +648,7 @@ def create_client(
     print("   - Sandbox enabled (OS-level bash isolation)")
     print(f"   - Filesystem restricted to: {project_dir.resolve()}")
     if original_project_permissions:
-        print("   - Worktree permissions: original project's .auto-claude/ accessible")
+        print("   - Worktree permissions: granted for original project directories")
     print("   - Bash commands restricted to allowlist")
     if max_thinking_tokens:
         print(f"   - Extended thinking: {max_thinking_tokens:,} tokens")
