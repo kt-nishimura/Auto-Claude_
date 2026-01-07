@@ -60,7 +60,6 @@ export function TaskCreationWizard({
   open,
   onOpenChange
 }: TaskCreationWizardProps) {
-  const { t } = useTranslation('tasks');
   // Get selected agent profile from settings
   const { settings } = useSettingsStore();
   const selectedProfile = DEFAULT_AGENT_PROFILES.find(
